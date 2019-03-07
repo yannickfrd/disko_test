@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    {#<div class="collapse navbar-collapse" id="navbarNav">#}
+    <div class="collapse navbar-collapse" id="navbarNav">
         {#<ul class="navbar-nav">#}
             {#<li class="nav-item active">#}
                 {#<a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>#}
@@ -23,7 +23,7 @@
         {#<ul class="navbar-nav ml-auto">#}
             {#{% if is_granted('ROLE_ADMIN') %}#}
                 {#<li class="nav-item">#}
-                    {#<a class="nav-link" href="#">Mon espace</a>#}
+                    {#<a class="nav-link" href="#">Mon esitpace</a>#}
                 {#</li>#}
             {#{% endif %}#}
             {#<li class="nav-item">#}
@@ -39,7 +39,21 @@
                 {#<a class="nav-link" href="#" data-toggle="modal" data-target="#connection">Connection</a>#}
             {#</li>#}
         {#</ul>#}
-    {#</div>#}
+        <ul class="navbar-nav ml-auto">
+            {% if not app.user %}
+                <li class="nav-item">
+                    <a  class="nav-link" href="{{ path('security_login') }}">Connection</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a  class="nav-link" href="{{ path('security_logout') }}">Déconnection</a>
+                </li>
+            {% endif %}
+        </ul>
+
+
+
+    </div>
 </nav>
 
 <!-- Modal -->

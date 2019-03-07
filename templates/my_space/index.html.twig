@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon espace{% endblock %}
+
+{% block body %}
+<h2>Bienvenu dans votre espace.</h2>
+
+    <h3>Je peux ci-dessous</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {# ******** NAVIGATION ******** #}
+            {{ include('my_space/components/navigationProduit.html.twig') }}
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

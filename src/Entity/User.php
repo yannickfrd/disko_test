@@ -57,9 +57,16 @@ class User implements UserInterface
      */
     private $produits;
 
+    /**
+     * @ORM\Column(type="array", nullable=false)
+     */
+    private $roles = [];
+
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();
+        $this->roles = array('ROLE_USER');
     }
 
     public function getId(): ?int
@@ -127,9 +134,14 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return $this->roles;
     }
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
+        return $this;
+    }
     /**
      * @return Collection|Produit[]
      */

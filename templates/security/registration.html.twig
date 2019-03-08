@@ -1,6 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Inscription{% endblock %}
+
 {% block body %}
     <h2>Insciption</h2>
-    {{ form(form) }}
+    {#<div class="container">#}
+        {#<div class="row justify-content-md-center">#}
+            {#<div class="col">#}
+
+                {#{{ form(form) }}#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

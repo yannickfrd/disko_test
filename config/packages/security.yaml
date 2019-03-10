@@ -1,11 +1,20 @@
+services:
+    app.security.voter.view_produit:
+        class: App\Security\Voter\ViewProduitVoter
+        tags:
+            - { name: security.voter }
+
 security:
     encoders:
         App\Entity\User:
             algorithm: bcrypt
 
     role_hierarchy:
+        ROLE_VIEWER_PRODUIT: VIEW_PRODUIT
 
-        ROLE_ADMIN: ROLE_USER
+        ROLE_ADMIN:
+            - ROLE_VIEWER_PRODUIT
+            - ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -44,4 +53,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+#        - { path: ^/user, role: ROLE_SUPER_ADMIN }
+        - { path: ^/produit/, role: ROLE_ADMIN }
+        - { path: ^/produit_show_card$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

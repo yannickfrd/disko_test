@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" id="navPrincipal">
     <a class="navbar-brand" href="{{ path('home') }}">Test_Disko</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,12 +9,12 @@
                 <a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Liste des produits</a>
+                <a class="nav-link" href="{{ path('produit_show_card') }}">Liste des produits</a>
             </li>
         </ul>
         <ul class="navbar-nav mx-auto">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <li><a>Bienvenue {{ app.user.username }}</a></li>
+                <li><a>Bienvenue {{ app.user.username }} | ({{ app.user.roles.0 }})</a></li>
                 </a>
             {% else %}
                 <li><a>Bienvenue</a></li>

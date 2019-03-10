@@ -1,16 +1,16 @@
-
-
 <ul class="nav flex-column">
+    {#Pour les ADMIN et SUPER ADMIN#}
     <li class="nav-item">
-        <a class="nav-link active" href="{{ path('my_space') }}">Mes produits</a>
+        <a class="nav-link active" href="{{ path('produit_index') }}">Mes produits</a>
+        {#<a class="nav-link active" href="{{ path('produit_edit', {'id': app.user.id}) }}">Mes produits</a>#}
+    </li>
+    {#Pour les SUPER ADMIN#}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path('produit_all') }}">Liste de tous les produits</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ path('new_produit') }}">Ajouter un produit</a>
+        <a class="nav-link" href="#">Liste des utilisateurs</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Modifier un produit</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Supprimer un produit</a>
-    </li>
+    {% endif %}
 </ul>

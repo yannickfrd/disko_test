@@ -36,6 +36,8 @@ class MySpaceController extends AbstractController
             $produit->setUserProd($userSession);
             $manager->persist($produit);
             $manager->flush();
+
+            return $this->redirectToRoute('new_produit');
         }
 
         return $this->render('my_space/new.html.twig', [

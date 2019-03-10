@@ -69,6 +69,11 @@ class User implements UserInterface
         $this->roles = array('ROLE_USER');
     }
 
+    public function __toString(): ?string
+    {
+        return $this->id;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

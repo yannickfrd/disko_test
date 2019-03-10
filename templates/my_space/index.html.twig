@@ -3,21 +3,35 @@
 {% block title %}Mon espace{% endblock %}
 
 {% block body %}
-<h2>Bienvenu dans votre espace.</h2>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; color: #4c6f7b; }
+    </style>
 
-    <h3>Je peux ci-dessous</h3>
+    <div class="example-wrapper">
+        <h2>Bienvenu dans votre espace.</h2>
 
+        <p>Seuls les "admin" et "super admin" ont accès à cette page.</p>
+        <ul>
+            <li>Non inscrit : </li>
+            <ul>
+                <li><code><a>Accès à la page d'accueil ainsi que la page de produit.</a></code></li>
+                <li><code><a>Cette dernière permet d'afficher tous les produits triés par leurs prix en ordre croissant.</a></code></li>
+            </ul>
+        </ul>
+    </div>
+    {# ******** NAVIGATION ******** #}
+    {{ include('my_space/components/navigationProduit.html.twig') }}
 <div class="container">
+    <h3>Je peux ci-dessous</h3>
     <div class="row">
         <div class="col">
-            {# ******** NAVIGATION ******** #}
-            {{ include('my_space/components/navigationProduit.html.twig') }}
+
         </div>
         <div class="col-6">
 
         </div>
     </div>
 </div>
-
 
 {% endblock %}

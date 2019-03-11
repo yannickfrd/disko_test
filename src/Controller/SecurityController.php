@@ -29,6 +29,11 @@ class SecurityController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            $this->addFlash(
+                'success',
+                'Vous êtes bien enregistré!'
+            );
+
             return $this->redirectToRoute('home');
         }
 
@@ -45,7 +50,6 @@ class SecurityController extends AbstractController
     {
         return $this->render('security/login.html.twig', [
             'controller_name' => 'SecurityController',
-            //'form' => $form->createView()
         ]);
     }
 
@@ -56,7 +60,6 @@ class SecurityController extends AbstractController
     {
         return $this->render('security/login.html.twig', [
             'controller_name' => 'SecurityController',
-            //'form' => $form->createView()
         ]);
     }
 }

@@ -64,6 +64,11 @@ class ProduitController extends AbstractController
             $entityManager->persist($produit);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                'Le produit est bien enregistré!'
+            );
+
             return $this->redirectToRoute('produit_index');
         }
 
@@ -117,6 +122,11 @@ class ProduitController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'success',
+                'Le produit a bien été modifier!'
+            );
+
             return $this->redirectToRoute('produit_index', [
                 'id' => $produit->getId(),
             ]);
@@ -138,6 +148,11 @@ class ProduitController extends AbstractController
             $entityManager->remove($produit);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'success',
+            'Vous êtes bien été supprimé!'
+        );
 
         return $this->redirectToRoute('produit_index');
     }

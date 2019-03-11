@@ -40,6 +40,11 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                "L'utilisateur a bien été ajouté"
+            );
+
             return $this->redirectToRoute('user_index');
         }
 
@@ -72,6 +77,12 @@ class UserController extends AbstractController
             $user->setPassword($hash);
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'success',
+                "L'utilisateur a bien été modifié"
+            );
+
+
             return $this->redirectToRoute('user_index', [
                 'id' => $user->getId(),
             ]);
@@ -93,6 +104,11 @@ class UserController extends AbstractController
             $entityManager->remove($user);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'success',
+            "L'utilisateur a bien été supprimé"
+        );
 
         return $this->redirectToRoute('user_index');
     }

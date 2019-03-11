@@ -1,0 +1,20 @@
+{% for produit in produits %}
+    {% if is_granted('VIEW', produit) %}
+    <tr>
+        <td>{{ produit.id }}</td>
+        <td>{{ produit.titre }}</td>
+        <td>{{ produit.description }}</td>
+        <td>{{ produit.prix }}</td>
+        <td>{{ produit.quantite }}</td>
+        <td>{{ produit.datecreation ? produit.datecreation|date('Y-m-d H:i:s') : '' }}</td>
+        <td>
+            <a href="{{ path('produit_show', {'id': produit.id}) }}">montrer</a>
+            <a href="{{ path('produit_edit', {'id': produit.id}) }}">modifier</a>
+        </td>
+    </tr>
+    {% endif %}
+{% else %}
+    <tr>
+        <td colspan="7">no records found</td>
+    </tr>
+{% endfor %}

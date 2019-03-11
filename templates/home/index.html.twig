@@ -3,18 +3,35 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/wamp64/www/disko_test/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/wamp64/www/disko_test/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="jumbotron example-wrapper">
+        <h1 class="display-4">Bienvenue sur le mini-projet de <a href="https://www.disko.fr/" target="_blank">Disko</a></h1>
+        <p class="lead">Ce qui est possible de faire dans ce mini-projet par rôle:</p>
+        <hr class="my-4">
+        <li>Non inscrit : </li>
+        <ul>
+            <li>Non inscrit : </li>
+            <ul>
+                <li><code><a>Accès à la page d'accueil ainsi que la page de produit.</a></code></li>
+                <li><code><a>Cette dernière permet d'afficher tous les produits triés par leurs prix en ordre croissant.</a></code></li>
+            </ul>
+            <hr>
+            <li>ROLE_USER : <code><a>Comme "non inscrit" plus ...</a></code></li>
+            <ul><li><code><a>Page du produit.</a></code></li></ul>
+            <hr>
+            <li>ROLE_ADMIN : <code><a>Comme ROLE_USER plus ...</a></code></li>
+            <ul>
+                <li><code><a>Accès à un espace personnel.</a></code></li>
+                <li><code><a>Créer des produits.</a></code></li>
+                <li><code><a>Voir tous ses des produits.</a></code></li>
+                <li><code><a>Gestion total de ses produits.</a></code></li>
+            </ul>
+            <hr>
+            <li>ROLE_SUPER_ADMIN : <code><a>Comme ROLE_ADMIN plus ...</a></code></li>
+            <ul>
+                <li><code><a>Accès à l'administration.</a></code></li>
+                <li><code><a>Voir la liste des utilisateurs</a></code></li>
+                <li><code><a>Gestion total des utilisateurs.</a></code></li>
+            </ul>
+        </ul>
+    </div>
 {% endblock %}

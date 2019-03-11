@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/cards/showCardThis.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
+{% endblock %}
+
+{% block title %}Fiche produit{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron example-wrapper">
+            <div class="row">
+                <div class="col-6">
+                    <h1 class="display-4">{{ produit.titre }}</h1>
+                    <p>Quantité : {{ produit.quantite }}</p>
+                </div>
+                <div class="col-6"><h2 class="display-4"><code><a>{{ produit.prix }} €</a></code></h2></div>
+            </div>
+            <hr class="my-4">
+            <h3>Description :</h3>
+            <p>{{ produit.description }}</p>
+            <hr class="my-4">
+            <p>Créé par : {{ produit.userProd.username }} <br>le {{ produit.datecreation|date("m/d/Y") }}</p>
+<br>
+            <a class="btn btn-info" role="button" href="{{ path('produit_show_card') }}">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

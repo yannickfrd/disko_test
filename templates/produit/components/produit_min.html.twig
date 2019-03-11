@@ -1,0 +1,16 @@
+<div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{ produit.titre }}<br>
+        <h6 class="card-subtitle mb-2 text-muted">Quantité : {{ produit.quantite }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">créé par : {{ produit.userProd.username }}</h6>
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">{{ produit.prix }} €</h5>
+        <p class="card-text">{{ produit.description }}</p>
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="card-footer border-info">
+        <a href="{{ path('produit_show_card_this', {'id': produit.id}) }}" type="button" role="button" class="btn btn-secondary">Accéder au produit</a>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="assets/css/mySpace/index.css">{% endblock %}
+
+{% block title %}Mon espace{% endblock %}
+
+{% block body %}
+    <div class="jumbotron example-wrapper">
+        <h1 class="display-4">Bienvenu dans votre espace.</h1>
+        <p class="lead">Seuls les "admin" et "super admin" ont accès à cette page.</p>
+        <hr class="my-4">
+        <li>Non inscrit : </li>
+        <ul>
+            <li><code><a>Accès à la page d'accueil ainsi que la page de produit.</a></code></li>
+            <li><code><a>Cette dernière permet d'afficher tous les produits triés par leurs prix en ordre croissant.</a></code></li>
+        </ul>
+        <hr class="my-4">
+        <p class="lead">
+            {# ******** NAVIGATION ******** #}
+            {{ include('my_space/components/navigationProduit.html.twig') }}
+        </p>
+    </div>
+{% endblock %}

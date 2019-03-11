@@ -6,15 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(
- *     fields= {"email"},
- *     message="L'e-mail que vous avez indiqué est déjà utilisé."
- * )
+ * @UniqueEntity("email", message="L'e-mail que vous avez indiqué est déjà utilisé.")
+ * @UniqueEntity("username", message="Le nom d'utilisateur est déjà pris.")
  */
 class User implements UserInterface
 {
@@ -33,16 +31,19 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      * @assert\Length(min="5", minMessage="Votre mot de passe doit faire minimum 5 caractères.")
      */
     private $password;
 
     /**
+     * @Assert\NotBlank()
      * @assert\EqualTo(propertyPath="password", message="Ce n'est pas le même mot de passe.")
      */
     public $confirm_password;

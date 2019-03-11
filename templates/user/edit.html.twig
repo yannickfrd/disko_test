@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/produit/new.css') }}">
+{% endblock %}
+
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
-
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('user_index') }}">back to list</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+    <div class="container">
+        <div class="jumbotron example-wrapper">
+            <h1 class="display-4">Modifier un utilisateur.</h1>
+            <hr class="my-4">
+            <p class="lead">{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}</p>
+            <hr class="my-4">
+            <a class="btn btn-outline-info" role="button" type="button" href="{{ path('user_index') }}">Retour à la liste</a>
+            {{ include('user/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

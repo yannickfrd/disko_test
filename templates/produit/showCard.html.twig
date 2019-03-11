@@ -1,23 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/cards/showCards.css') }}">{% endblock %}
+
 {% block title %}Liste des produits{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; color: #4c6f7b; }
-</style>
-
-<div class="example-wrapper"><h1>Liste des produits</h1>
-    <br><code><a>Devenir au moins "admin" pour accéder à l'un de produit!!</a></code>
-</div>
-    <div class="container">
-        <div class="row">
-            {% for item in produit %}
-                {#CARTE PRODUIT#}
-                {{ include('produit/components/produit_min.html.twig', {'produit': item}) }}
-            {% endfor %}
+    <div class="jumbotron example-wrapper">
+        <h1 class="display-4">Liste des produits</h1>
+        <p class="lead"><code><a>Devenir au moins "admin" pour accéder à l'un de produit!!</a></code></p>
+        <hr class="my-4">
+        <div class="container liste-cards">
+            <div class="row">
+                {% for item in produit %}
+                    {#CARTE PRODUIT#}
+                    {{ include('produit/components/produit_min.html.twig', {'produit': item}) }}
+                {% endfor %}
+            </div>
         </div>
     </div>
-
 {% endblock %}

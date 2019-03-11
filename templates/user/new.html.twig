@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/produit/new.css') }}">
+{% endblock %}
+
 {% block title %}New User{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
-
-    {{ include('user/_form.html.twig') }}
-
-    <a href="{{ path('user_index') }}">back to list</a>
+    <div class="container">
+        <div class="jumbotron example-wrapper">
+            <h1 class="display-4">Créer un nouvel utitlisateur.</h1>
+            <hr class="my-4">
+            <p class="lead">{{ include('user/_form.html.twig') }}</p>
+            <hr class="my-4">
+            <a class="btn btn-outline-info" role="button" type="button" href="{{ path('user_index') }}">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}

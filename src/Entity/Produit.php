@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
+ * @UniqueEntity("titre", message="Ce titre existe déjà dans la base de donnée.")
  */
 class Produit
 {
@@ -18,6 +21,7 @@ class Produit
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $titre;
 
@@ -28,11 +32,13 @@ class Produit
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank()
      */
     private $prix;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
      */
     private $quantite;
 

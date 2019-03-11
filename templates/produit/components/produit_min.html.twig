@@ -10,7 +10,7 @@
     </div>
     {% if is_granted('ROLE_ADMIN') %}
     <div class="card-footer border-info">
-        <button type="button" class="btn btn-secondary">Accéder au produit</button>
+        <a href="{{ path('produit_show_card_this', {'id': produit.id}) }}" type="button" role="button" class="btn btn-secondary">Accéder au produit</a>
     </div>
     {% endif %}
 </div>

@@ -108,5 +108,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="www" />
+    <orderEntry type="module" module-name="yfrd_portfolio" />
   </component>
 </module>

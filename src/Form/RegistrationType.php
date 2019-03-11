@@ -43,7 +43,6 @@ class RegistrationType extends AbstractType
                     'class' => 'form-control col-3'
                 ]
             ])
-            //->add('datecreation')
             ->add('Enregistrer', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-info'

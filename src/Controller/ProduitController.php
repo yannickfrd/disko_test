@@ -74,6 +74,16 @@ class ProduitController extends AbstractController
     }
 
     /**
+     * @Route("/{id}", name="produit_show_card_this", methods={"GET"})
+     */
+    public function showCardThis(Produit $produit): Response
+    {
+        return $this->render('produit/showCardThis.html.twig', [
+            'produit' => $produit,
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="produit_show", methods={"GET"})
      */
     public function show(Produit $produit): Response
@@ -94,6 +104,7 @@ class ProduitController extends AbstractController
             'produit' => $produit,
         ]);
     }
+
 
     /**
      * @Route("/{id}/edit", name="produit_edit", methods={"GET","POST"})
